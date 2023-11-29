@@ -6,7 +6,8 @@
     "start": "npx webpack serve --mode=development",
     "build": "webpack",
     "build:prod": "webpack --mode=production",
-    "build:dev": "webpack --mode=development"
+    "build:dev": "webpack --mode=development",
+    "https": "http-server dist"
   },
   "devDependencies": {
     "@babel/core": "*",
@@ -21,19 +22,25 @@
     "eslint-config-prettier": "*",
     "html-loader": "*",
     "html-webpack-plugin": "*",
+    "http-server": "*",
     "mini-css-extract-plugin": "*",
+    "postcss": "*",
+    "postcss-import": "*",
     "postcss-load-config": "*",
     "postcss-loader": "*",
     "sass": "*",
     "sass-loader": "*",
+    "screenfull": "*",
     "style-loader": "*",
     "styled-components": "*",
+    "tailwindcss": "*",
     "ts-loader": "*",
     "typescript": "*",
     "vis-data": "*",
     "vis-network": "*",
     "webpack": "*",
     "webpack-cli": "*",
-    "webpack-dev-server": "*"
+    "webpack-dev-server": "*",
+    "workbox-webpack-plugin": "*"
   }
 }
