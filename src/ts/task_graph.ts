@@ -47,7 +47,7 @@ const data: Data = { nodes: dataSetNodes, edges: dataSetEdges };
 const options: Options = {
   nodes: {
     shape: "dot",
-    size: 16,
+    size: 24,
     font: {
       size: 12,
     },
