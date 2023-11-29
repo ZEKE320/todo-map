@@ -21,7 +21,7 @@ let achievedGoal = false;
 
 /** ネットワークコンテナ */
 const networkContainer: HTMLElement | null =
-  document.getElementById("mynetwork");
+  document.querySelector("#networkDiag");
 
 if (!networkContainer) {
   alert("ノードリンクが見つかりません!");
