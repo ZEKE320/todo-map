@@ -1,3 +1,10 @@
+import {
+  GOAL_NODE_ID,
+  PROGRESS_COLORS,
+  START_NODE_ID,
+  TEXT_COLORS,
+} from "ts/constants";
+import { dataSetEdges, dataSetNodes } from "ts/dataset";
 import { Font } from "vis";
 import {
   Data,
@@ -6,13 +13,6 @@ import {
   Node,
   Options,
 } from "vis-network/peer/esm/vis-network";
-import {
-  GOAL_NODE_ID,
-  PROGRESS_COLORS,
-  START_NODE_ID,
-  TEXT_COLORS,
-} from "ts/constants";
-import { dataSetNodes, dataSetEdges } from "ts/dataset";
 
 import "sass/task_graph.scss";
 
@@ -33,13 +33,14 @@ if ("serviceWorker" in navigator) {
 let achievedGoal = false;
 
 /** ネットワークコンテナ */
-const networkContainer: HTMLElement | null =
+const networkDiagElem: HTMLElement | null =
   document.querySelector("#networkDiag");
 
-if (!networkContainer) {
+if (!networkDiagElem) {
   alert("ノードリンクが見つかりません!");
   throw new Error("ノードリンクが見つかりません！");
 }
+
 /** データ */
 const data: Data = { nodes: dataSetNodes, edges: dataSetEdges };
 
@@ -72,7 +73,7 @@ const options: Options = {
 };
 
 /** ネットワーク */
-const network = new Network(networkContainer, data, options);
+const network = new Network(networkDiagElem, data, options);
 
 window.addEventListener("resize", () => {
   adjustNetworkSize();
