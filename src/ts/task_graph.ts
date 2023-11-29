@@ -110,9 +110,9 @@ function adjustNetworkSize() {
   }
 
   const headerHeight: number =
-    document.querySelector("header")?.clientHeight ?? 0;
+    document.querySelector("header")?.scrollHeight ?? 0;
   const footerHeight: number =
-    document.querySelector("footer")?.clientHeight ?? 0;
+    document.querySelector("footer")?.scrollHeight ?? 0;
   const windowHeight: number = window.innerHeight;
   const networkHeight: number = windowHeight - headerHeight - footerHeight;
   networkContainer.style.height = `${networkHeight}px`;
