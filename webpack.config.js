@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 /** @type {import("webpack").Configuration} */
 module.exports = {
   mode: "production",
-  devtool: "source-map",
   entry: {
     main: "ts/task_graph.ts",
   },
