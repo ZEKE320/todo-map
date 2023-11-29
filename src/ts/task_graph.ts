@@ -54,6 +54,7 @@ const options: Options = {
     },
   },
   edges: {
+    width: 6,
     arrows: "to",
   },
   physics: {
