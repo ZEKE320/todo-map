@@ -70,7 +70,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 8,
-    label: "Task\n今日の良い事を聞けるようになる",
+    label: "Task\n今日の良い事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -78,7 +78,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 9,
-    label: "Task\n熱心に取り組んでいる活動を聞けるようになる",
+    label: "Task\n熱心に取り組んでいる活動を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -86,7 +86,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 10,
-    label: "Task\nわくわくした出来事が聞けるようになる",
+    label: "Task\nわくわくした出来事が聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -94,7 +94,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 11,
-    label: "Task\n最近の出来事が聞けるようになる",
+    label: "Task\n最近の出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -102,7 +102,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 12,
-    label: "Task\n最近の出来事をどう感じたか聞けるようになる",
+    label: "Task\n最近の出来事をどう感じたか聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -111,7 +111,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
 
   {
     id: GOAL_NODE_ID,
-    label: "理想:\n初対面でも会話を続けることができるようになる",
+    label: "理想:\n初対面でもしばらく会話を続けられる",
     color: PROGRESS_COLORS.goal,
     x: 1500,
     y: -500,
