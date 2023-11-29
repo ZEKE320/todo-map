@@ -10,7 +10,7 @@ import { DataSetEdges, DataSetNodes, Edge } from "vis-network";
 export const dataSetNodes: DataSetNodes = new DataSet([
   {
     id: START_NODE_ID,
-    label: "現在の自分:\n人と話すことが得意ではない",
+    label: "現在:\n人と話すことが得意ではない",
     color: PROGRESS_COLORS.start,
     x: 0, // x座標を0に設定
     y: 0, // y座標を0に設定
@@ -111,7 +111,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
 
   {
     id: GOAL_NODE_ID,
-    label: "理想の自分:\n初対面でも会話を続けることができるようになる",
+    label: "理想:\n初対面でも会話を続けることができるようになる",
     color: PROGRESS_COLORS.goal,
     x: 1500,
     y: -500,
