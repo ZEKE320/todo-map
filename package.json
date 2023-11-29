@@ -1,0 +1,39 @@
+{
+  "name": "task_graph",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "npx webpack serve --mode=development",
+    "build": "webpack",
+    "build:prod": "webpack --mode=production",
+    "build:dev": "webpack --mode=development"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@types/vis": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "autoprefixer": "*",
+    "babel-loader": "*",
+    "css-loader": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "html-loader": "*",
+    "html-webpack-plugin": "*",
+    "mini-css-extract-plugin": "*",
+    "postcss-load-config": "*",
+    "postcss-loader": "*",
+    "sass": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "styled-components": "*",
+    "ts-loader": "*",
+    "typescript": "*",
+    "vis-data": "*",
+    "vis-network": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-dev-server": "*"
+  }
+}
