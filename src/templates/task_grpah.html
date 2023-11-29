@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>目標逆算ToDoマップ (🧪)</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="mx-2 p-4">
+      <header class="flex justify-between items-center">
+        <span class="text-2xl font-semibold my-2">(🧪) 目標逆算ToDoマップ</span>
+        <button
+          id="refreshButton"
+          class="hidden bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onclick="location.reload()"
+        >
+          次の目標を設定する
+        </button>
+      </header>
+      <div id="mynetwork"></div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+</html>
