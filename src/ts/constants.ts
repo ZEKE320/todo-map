@@ -1,0 +1,20 @@
+/** スタート ノードID */
+export const START_NODE_ID = 1;
+/** ゴール ノードID */
+export const GOAL_NODE_ID = 100;
+
+/** テキストカラー */
+export const TEXT_COLORS = {
+  active: "#D0F288",
+  hidden: "#939495",
+};
+
+/** 進捗カラー */
+export const PROGRESS_COLORS = {
+  start: "#D0F288", // 現在
+  undone: "#f9fafc", // 未達成
+  done: "#86E8E4", // 達成済み
+  achievable: "#6495ED", // 達成可能
+  path: "#FFD700", // 達成済みのパス
+  goal: "#DF826C", // 目標
+};
