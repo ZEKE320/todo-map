@@ -3,6 +3,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 /** @type {import("webpack").Configuration} */
 module.exports = {
@@ -55,12 +56,17 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: "To-Do Graph",
+      template: "src/templates/task_grpah.html",
+      filename: "index.html",
+    }),
     new MiniCssExtractPlugin({
       filename: "css/[name]-[contenthash].css",
     }),
-    new HtmlWebpackPlugin({
-      template: "src/templates/task_grpah.html",
-      filename: "index.html",
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 };
