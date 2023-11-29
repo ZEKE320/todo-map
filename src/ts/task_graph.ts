@@ -111,9 +111,12 @@ function plotGoalPathAndAlert(nodeId: IdType) {
   ) {
     plotGoalPath();
     if (!achievedGoal) {
-      alertGoal();
       document.querySelector("#refreshButton")?.classList.remove("hidden");
       achievedGoal = true;
+
+      setTimeout(() => {
+        alertGoal();
+      }, 200);
     }
   }
 }
