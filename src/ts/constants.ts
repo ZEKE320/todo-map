@@ -5,8 +5,9 @@ export const GOAL_NODE_ID = 100;
 
 /** テキストカラー */
 export const TEXT_COLORS = {
-  active: "#D0F288",
-  hidden: "#939495",
+  highlighted: "#D0F288",
+  normal: "#96F8F4",
+  fade: "#939495",
 };
 
 /** 進捗カラー */

@@ -16,7 +16,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     y: 0, // y座標を0に設定
     fixed: true,
     font: {
-      color: TEXT_COLORS.active,
+      color: TEXT_COLORS.highlighted,
     },
     borderWidth: 5,
   },
@@ -25,7 +25,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\nピンポンルールをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -33,7 +33,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n信号機ルールをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -41,7 +41,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n一時停止ルールをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -49,7 +49,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\nAnchorをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -57,7 +57,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\nRevealをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -65,7 +65,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\nEncourageをマスターする",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -73,7 +73,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n今日の良い出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -81,7 +81,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n熱心に取り組んでいる活動を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -89,7 +89,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\nわくわくした出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -97,7 +97,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n最近の出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
   {
@@ -105,7 +105,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     label: "Task\n最近の出来事をどう感じたか聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
-      color: TEXT_COLORS.hidden,
+      color: TEXT_COLORS.fade,
     },
   },
 
@@ -117,7 +117,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     y: -500,
     fixed: true,
     font: {
-      color: "#fbfcff",
+      color: TEXT_COLORS.highlighted,
     },
     borderWidth: 5,
   },

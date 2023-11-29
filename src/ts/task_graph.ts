@@ -151,16 +151,13 @@ function updateAchievableNodes(nodeId: IdType) {
       achievableNodeIds.add(connectedNodeId);
       /** 次のノード */
       const nextNode = dataSetNodes.get(connectedNodeId);
-      if (nextNode) {
-        const font: Font | string | undefined = nextNode.font;
-        if (typeof font === "object") {
-          // フォントカラーを更新し、ノードを有効化する
-          dataSetNodes.update({
-            id: nextNode.id,
-            font: { color: TEXT_COLORS.active },
-            borderWidth: 4,
-          });
-        }
+      if (nextNode && nextNode.color !== PROGRESS_COLORS.goal) {
+        // フォントカラーを更新し、ノードを有効化する
+        dataSetNodes.update({
+          id: nextNode.id,
+          font: { color: TEXT_COLORS.normal },
+          borderWidth: 4,
+        });
       }
     }
   );
@@ -173,6 +170,9 @@ function markAsDone(nodeId: IdType, node: Node) {
   dataSetNodes.update({
     id: nodeId,
     color: PROGRESS_COLORS.done,
+    font: {
+      color: TEXT_COLORS.highlighted,
+    },
     label: node.label + "\n(達成)",
   });
 
