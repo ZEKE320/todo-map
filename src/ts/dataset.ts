@@ -70,7 +70,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 8,
-    label: "Task\n今日の良い事を聞くことができる",
+    label: "Task\n今日の良い出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
@@ -86,7 +86,7 @@ export const dataSetNodes: DataSetNodes = new DataSet([
   },
   {
     id: 10,
-    label: "Task\nわくわくした出来事が聞くことができる",
+    label: "Task\nわくわくした出来事を聞くことができる",
     color: PROGRESS_COLORS.undone,
     font: {
       color: TEXT_COLORS.hidden,
