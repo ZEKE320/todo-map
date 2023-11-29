@@ -4,6 +4,10 @@
 
 現状から理想までのギャップをToDoで繋げ、地図に変換するアプリ
 
+## デモ
+
+実際の動作確認は[こちら](https://main--zeke320-todo-map.netlify.app/)から
+
 ## 概要
 
 make realで生成したコンセプト([pdf](concepts/todo-map-concept.pdf), [html](concepts/todo-map-concept.html))をもとに作成したモックアプリです。
