@@ -5,12 +5,9 @@ body {
   height: 100vh;
 }
 
-#mynetwork {
+#networkDiag {
   width: 100%;
-  height: 85vh;
-  background-color: #40434b;
-}
-
-.vis-network {
   border-radius: 8px;
+  height: 80vh;
+  background-color: #40434b;
 }
