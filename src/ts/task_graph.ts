@@ -120,6 +120,53 @@ function adjustNetworkSize() {
   network.fit();
 }
 
+/**
+ * 達成可能なノード一覧を更新する
+ * @param nodeId 現在のノードID
+ */
+function updateAchievableNodes(nodeId: IdType) {
+  /** 隣接ノード */
+  const connectedNodes = network.getConnectedNodes(nodeId, "to");
+  connectedNodes.forEach(
+    (connectedNodeId: IdType | { fromId: IdType; toId: IdType }) => {
+      if (typeof connectedNodeId === "object") {
+        connectedNodeId = connectedNodeId.toId; // IdTypeに変換
+      }
+      achievableNodeIds.add(connectedNodeId);
+      /** 次のノード */
+      const nextNode = dataSetNodes.get(connectedNodeId);
+      if (nextNode) {
+        const font: Font | string | undefined = nextNode.font;
+        if (typeof font === "object") {
+          // フォントカラーを更新し、ノードを有効化する
+          dataSetNodes.update({
+            id: nextNode.id,
+            font: { color: TEXT_COLORS.active },
+            borderWidth: 4,
+          });
+        }
+      }
+    }
+  );
+}
+
+/**
+ * ノードを達成済みにする
+ */
+function markAsDone(nodeId: IdType, node: Node) {
+  dataSetNodes.update({
+    id: nodeId,
+    color: PROGRESS_COLORS.done,
+    label: node.label + "\n(達成)",
+  });
+
+  updateAchievableNodes(nodeId);
+}
+
+/**
+ * 目標達成時の達成パスを描画し、達成アラートを表示する
+ * @param nodeId 現在のノードID
+ */
 function plotGoalPathAndAlert(nodeId: IdType) {
   const nextNodeIds: IdType[] = network
     .getConnectedNodes(nodeId, "to")
@@ -165,49 +212,6 @@ async function plotGoalPath() {
       });
     }
   });
-}
-
-/**
- * 達成可能なノード一覧を更新する
- * @param nodeId 現在のノードID
- */
-function updateAchievableNodes(nodeId: IdType) {
-  /** 隣接ノード */
-  const connectedNodes = network.getConnectedNodes(nodeId, "to");
-  connectedNodes.forEach(
-    (connectedNodeId: IdType | { fromId: IdType; toId: IdType }) => {
-      if (typeof connectedNodeId === "object") {
-        connectedNodeId = connectedNodeId.toId; // IdTypeに変換
-      }
-      achievableNodeIds.add(connectedNodeId);
-      /** 次のノード */
-      const nextNode = dataSetNodes.get(connectedNodeId);
-      if (nextNode) {
-        const font: Font | string | undefined = nextNode.font;
-        if (typeof font === "object") {
-          // フォントカラーを更新し、ノードを有効化する
-          dataSetNodes.update({
-            id: nextNode.id,
-            font: { color: TEXT_COLORS.active },
-            borderWidth: 4,
-          });
-        }
-      }
-    }
-  );
-}
-
-/**
- * ノードを達成済みにする
- */
-function markAsDone(nodeId: IdType, node: Node) {
-  dataSetNodes.update({
-    id: nodeId,
-    color: PROGRESS_COLORS.done,
-    label: node.label + "\n(達成)",
-  });
-
-  updateAchievableNodes(nodeId);
 }
 
 /**
