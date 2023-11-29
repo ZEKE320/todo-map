@@ -131,6 +131,7 @@ function adjustNetworkSize() {
   const networkHeight: number = windowHeight - headerHeight - footerHeight;
   networkContainer.style.height = `${networkHeight}px`;
 
+  network.redraw();
   network.fit();
 }
 
