@@ -60,6 +60,15 @@ const options: Options = {
 
 /** ネットワーク */
 const network = new Network(networkContainer, data, options);
+
+window.addEventListener("resize", () => {
+  adjustNetworkSize();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  adjustNetworkSize();
+});
+
 /** 達成可能なノードID一覧 */
 const achievableNodeIds = new Set<IdType>([START_NODE_ID]);
 
@@ -88,6 +97,28 @@ network.on("click", (data: Data) => {
   // 達成パスの描画と達成アラートの表示
   plotGoalPathAndAlert(nodeId);
 });
+
+/**
+ * ノードリンク図のサイズを調整する
+ */
+function adjustNetworkSize() {
+  const networkContainer: HTMLElement | null =
+    document.querySelector("#networkDiag");
+
+  if (!networkContainer) {
+    return;
+  }
+
+  const headerHeight: number =
+    document.querySelector("header")?.clientHeight ?? 0;
+  const footerHeight: number =
+    document.querySelector("footer")?.clientHeight ?? 0;
+  const windowHeight: number = window.innerHeight;
+  const networkHeight: number = windowHeight - headerHeight - footerHeight;
+  networkContainer.style.height = `${networkHeight}px`;
+
+  network.fit();
+}
 
 function plotGoalPathAndAlert(nodeId: IdType) {
   const nextNodeIds: IdType[] = network
