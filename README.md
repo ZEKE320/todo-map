@@ -2,7 +2,7 @@
 
 ## コンセプト
 
-**目標達成のGoogle Map**  
+### 目標達成のGoogle Map
 
 現状から理想までのギャップをToDoで繋げ、地図に変換・ルート案内するアプリ
 
@@ -12,7 +12,7 @@
 
 ## 概要
 
-make realで生成したコンセプト([pdf](concepts/todo-map-concept.pdf), [html](concepts/todo-map-concept.html))をもとに作成したモックアプリです。
+make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept.pdf), [html](concepts/todo-map/todo-map-concept.html))をもとに作成したモックアプリです。
 
 今後の実装としては、
 
@@ -43,13 +43,16 @@ make realで生成したコンセプト([pdf](concepts/todo-map-concept.pdf), [h
 ## 参考
 
 1. make realへの入力プロンプト
-    ![make real](concepts/todo-map-concept.svg)
+
+    ![make real](concepts/todo-map/todo-map-concept.svg)
 
 1. make realの出力
-    [make realの出力HTML](concepts/todo-map-concept.html)
 
-    ![make real出力直後のレイアウト](concepts/todo-map-concept.png)
+    [make realの出力HTML](concepts/todo-map/todo-map-concept.html)
 
+    ![make real出力直後のレイアウト](concepts/todo-map/todo-map-concept.png)
+
+- [make real・tldraw | makereal.tldraw.com](https://makereal.tldraw.com/)
 - [Dラボ | daigovideolab.jp](https://daigovideolab.jp/)
 - [科学的に最強な雑談のはじめ方【会話スターター】とは？ | daigovideolab.jp](https://daigovideolab.jp/play/1586367723)
 - [メンタリストDaiGo. 超トーク力. CCCメディアハウス, 2021.](http://books.cccmh.co.jp/list/detail/2112/)
