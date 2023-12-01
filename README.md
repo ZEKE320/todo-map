@@ -10,6 +10,17 @@
 
 実際の動作確認は[こちら](https://main--zeke320-todo-map.netlify.app/)から
 
+## 目次
+
+- [ToDoマップ](#todoマップ)
+  - [コンセプト](#コンセプト)
+    - [目標達成のGoogle Map](#目標達成のgoogle-map)
+  - [デモ](#デモ)
+  - [目次](#目次)
+  - [概要](#概要)
+  - [操作方法](#操作方法)
+  - [参考](#参考)
+
 ## 概要
 
 make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept.pdf), [html](concepts/todo-map/todo-map-concept.html))をもとに作成したモックアプリです。
@@ -42,17 +53,34 @@ make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept
 
 ## 参考
 
-1. make realへの入力プロンプト
+1. TODOマップ
+    1. make realへの入力プロンプト
 
-    ![make real](concepts/todo-map/todo-map-concept.svg)
+        ![make real](concepts/todo-map/todo-map-concept.svg)
 
-1. make realの出力
+    1. make realの出力
 
-    [make realの出力HTML](concepts/todo-map/todo-map-concept.html)
+        [make realの出力HTML](concepts/todo-map/todo-map-concept.html)
 
-    ![make real出力直後のレイアウト](concepts/todo-map/todo-map-concept.png)
+        ![make real出力直後のレイアウト](concepts/todo-map/todo-map-concept.png)
 
-- [make real・tldraw | makereal.tldraw.com](https://makereal.tldraw.com/)
-- [Dラボ | daigovideolab.jp](https://daigovideolab.jp/)
-- [科学的に最強な雑談のはじめ方【会話スターター】とは？ | daigovideolab.jp](https://daigovideolab.jp/play/1586367723)
-- [メンタリストDaiGo. 超トーク力. CCCメディアハウス, 2021.](http://books.cccmh.co.jp/list/detail/2112/)
+1. TODOリスト サイドメニュー
+
+    1. make realへの入力プロンプト
+
+        ![make real sidemenu](concepts/todo-list-sidemenu/todo-list-sidemenu-concept.svg)
+
+    1. make realの出力
+
+        [make real sidemenuの出力HTML](concepts/todo-list-sidemenu/todo-list-sidemenu-concept.html)
+        ![make real sidemenuの出力直後レイアウト](concepts/todo-list-sidemenu/todo-list-sidemenu-concept.png)
+
+1. [make real・tldraw | makereal.tldraw.com](https://makereal.tldraw.com/)
+
+1. [Dラボ | daigovideolab.jp](https://daigovideolab.jp/)
+
+1. [科学的に最強な雑談のはじめ方【会話スターター】 | youtube.com](https://www.youtube.com/watch?v=aPPQPCMrEzo)
+
+1. [科学的に最強な雑談のはじめ方【会話スターター】とは？ | daigovideolab.jp](https://daigovideolab.jp/play/1586367723)
+
+1. [メンタリストDaiGo. 超トーク力. CCCメディアハウス, 2021.](http://books.cccmh.co.jp/list/detail/2112/)
