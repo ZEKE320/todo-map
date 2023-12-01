@@ -3,8 +3,8 @@ import {
   PROGRESS_COLORS,
   START_NODE_ID,
   TEXT_COLORS,
-} from "ts/constants";
-import { dataSetEdges, dataSetNodes } from "ts/dataset";
+} from "ts/Constants";
+import { dataSetEdges, dataSetNodes } from "ts/Dataset";
 import { Font } from "vis";
 import {
   Data,
@@ -14,7 +14,7 @@ import {
   Options,
 } from "vis-network/peer/esm/vis-network";
 
-import "sass/task_graph.scss";
+import "sass/todo-map.scss";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -33,10 +33,9 @@ if ("serviceWorker" in navigator) {
 let achievedGoal = false;
 
 /** ネットワークコンテナ */
-const networkDiagElem: HTMLElement | null =
-  document.querySelector("#networkDiag");
+const todoMapElem: HTMLElement | null = document.querySelector("#todoMap");
 
-if (!networkDiagElem) {
+if (!todoMapElem) {
   alert("ノードリンクが見つかりません!");
   throw new Error("ノードリンクが見つかりません！");
 }
@@ -74,7 +73,7 @@ const options: Options = {
 };
 
 /** ネットワーク */
-const network = new Network(networkDiagElem, data, options);
+const network = new Network(todoMapElem, data, options);
 
 window.addEventListener("resize", () => {
   adjustNetworkSize();

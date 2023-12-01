@@ -9,18 +9,18 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: {
-    main: "ts/task_graph.ts",
+    main: "ts/TodoMap.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/[name]-[contenthash].bundle.js",
+    filename: "static/js/[name]-[contenthash].bundle.js",
     publicPath: "/",
     clean: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     modules: [
-      path.resolve(__dirname, "src"),
+      path.resolve(__dirname, "src/main/view/static"),
       path.resolve(__dirname, "node_modules"),
     ],
   },
@@ -57,16 +57,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "To-Do Graph",
-      template: "src/templates/task_grpah.html",
+      title: "TODO Map",
+      template: "src/main/view/templates/todo-map.html",
       filename: "index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "css/[name]-[contenthash].css",
+      filename: "static/css/[name]-[contenthash].css",
     }),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-    }),
+    // new WorkboxPlugin.GenerateSW({
+    //   clientsClaim: true,
+    //   skipWaiting: true,
+    // }),
   ],
 };

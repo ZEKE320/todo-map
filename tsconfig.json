@@ -7,6 +7,6 @@
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
-    "baseUrl": "./src"
+    "baseUrl": "src/main/view/static"
   }
 }

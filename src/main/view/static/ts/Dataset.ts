@@ -3,7 +3,7 @@ import {
   PROGRESS_COLORS,
   TEXT_COLORS,
   GOAL_NODE_ID,
-} from "ts/constants";
+} from "ts/Constants";
 import { DataSet } from "vis-data";
 import { DataSetEdges, DataSetNodes, Edge } from "vis-network";
 
