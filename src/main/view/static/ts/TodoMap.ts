@@ -103,10 +103,10 @@ network.on("click", (data: Data) => {
  * ノードリンク図のサイズを調整する
  */
 function adjustNetworkSize() {
-  const networkContainer: HTMLElement | null =
-    document.querySelector("#networkDiag");
+  const todoMapContainer: HTMLElement | null =
+    document.querySelector("#todoMap");
 
-  if (!networkContainer) {
+  if (!todoMapContainer) {
     return;
   }
 
@@ -115,8 +115,9 @@ function adjustNetworkSize() {
   const footerHeight: number =
     document.querySelector("footer")?.scrollHeight ?? 0;
   const windowHeight: number = window.innerHeight;
-  const networkHeight: number = windowHeight - headerHeight - footerHeight;
-  networkContainer.style.height = `${networkHeight}px`;
+  const containerHeight: number = windowHeight - headerHeight - footerHeight;
+
+  todoMapContainer.style.height = `${containerHeight}px`;
 
   network.redraw();
   network.fit();

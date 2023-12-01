@@ -5,13 +5,14 @@
 body {
   font-family: "Open+Sans", sans-serif;
   color: #f9fafc;
-  background-color: #1D2429;
+  background-color: #1d2429;
   height: 100vh;
 }
 
 #todoMap {
+  height: 90vh;
+  max-height: 100%;
   width: 100%;
   border-radius: 8px;
-  height: 90vh;
-  background-color: #3E4D57;
+  background-color: #3e4d57;
 }
