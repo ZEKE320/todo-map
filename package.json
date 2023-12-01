@@ -20,6 +20,8 @@
     "css-loader": "*",
     "eslint": "*",
     "eslint-config-prettier": "*",
+    "favicons": "^7.1.4",
+    "favicons-webpack-plugin": "^6.0.1",
     "html-loader": "*",
     "html-webpack-plugin": "*",
     "http-server": "*",

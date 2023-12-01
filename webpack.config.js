@@ -3,7 +3,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const WorkboxPlugin = require("workbox-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 /** @type {import("webpack").Configuration} */
 module.exports = {
@@ -64,9 +64,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "static/css/[name]-[contenthash].css",
     }),
-    // new WorkboxPlugin.GenerateSW({
-    //   clientsClaim: true,
-    //   skipWaiting: true,
-    // }),
+    new FaviconsWebpackPlugin({
+      logo: "src/main/view/static/images/favicon-io/check-mark-button/favicon.ico",
+    }),
   ],
 };
