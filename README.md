@@ -73,6 +73,7 @@ make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept
     1. make realの出力
 
         [make real sidemenuの出力HTML](concepts/todo-list-sidemenu/todo-list-sidemenu-concept.html)
+
         ![make real sidemenuの出力直後レイアウト](concepts/todo-list-sidemenu/todo-list-sidemenu-concept.png)
 
 1. [make real・tldraw | makereal.tldraw.com](https://makereal.tldraw.com/)
