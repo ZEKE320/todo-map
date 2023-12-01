@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List Synchronized with Node-Linked Diagram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .done {
+        background-color: skyblue;
+      }
+      .not-achievable {
+        color: gray;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+      <div class="flex flex-col md:flex-row justify-between">
+        <div class="w-full md:w-1/2 p-4">
+          <h2 class="text-xl font-bold mb-4">ACHIEVABLE:</h2>
+          <ul id="achievableList" class="space-y-2">
+            <!-- Achievable TODOs will be inserted here -->
+          </ul>
+        </div>
+        <div class="w-full md:w-1/2 p-4">
+          <h2 class="text-xl font-bold mb-4">DONE:</h2>
+          <ul id="doneList" class="space-y-2">
+            <!-- Done TODOs will be inserted here -->
+          </ul>
+          <h2 class="text-xl font-bold mb-4 mt-6">Not Achievable:</h2>
+          <ul id="notAchievableList" class="space-y-2">
+            <!-- Not Achievable TODOs will be inserted here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const todos = [
+        { id: 1, text: "do something xxx", next: [3, 5], status: "achievable" },
+        { id: 2, text: "do something yyy", next: [5], status: "achievable" },
+        { id: 3, text: "do something zzz", next: [4], status: "done" },
+        { id: 4, text: "do something ooo", next: [2, 5], status: "done" },
+        { id: 5, text: "do aaa", next: [6], status: "achievable" },
+        {
+          id: 6,
+          text: "do before goal",
+          next: ["Goal"],
+          status: "not-achievable",
+        },
+      ];
+
+      function updateTodoLists() {
+        const achievableList = document.getElementById("achievableList");
+        const doneList = document.getElementById("doneList");
+        const notAchievableList = document.getElementById("notAchievableList");
+        achievableList.innerHTML = "";
+        doneList.innerHTML = "";
+        notAchievableList.innerHTML = "";
+
+        todos.forEach((todo) => {
+          const li = document.createElement("li");
+          li.className = "p-3 bg-white rounded shadow";
+          li.innerHTML = `
+        <div class="flex justify-between items-center">
+          <span>${todo.text}</span>
+          <span>next: ${todo.next.join(", ")}</span>
+          ${
+            todo.status === "achievable"
+              ? '<button onclick="markDone(' +
+                todo.id +
+                ')" class="ml-4 px-2 py-1 bg-blue-500 text-white rounded">Done</button>'
+              : ""
+          }
+        </div>
+      `;
+
+          if (todo.status === "done") {
+            li.classList.add("done");
+            li.addEventListener("click", () => markAchievable(todo.id));
+            doneList.appendChild(li);
+          } else if (todo.status === "achievable") {
+            achievableList.appendChild(li);
+          } else if (todo.status === "not-achievable") {
+            li.classList.add("not-achievable");
+            notAchievableList.appendChild(li);
+          }
+        });
+      }
+
+      function markDone(id) {
+        const todo = todos.find((t) => t.id === id);
+        if (todo) {
+          todo.status = "done";
+          updateTodoLists();
+        }
+      }
+
+      function markAchievable(id) {
+        const todo = todos.find((t) => t.id === id);
+        if (todo) {
+          todo.status = "achievable";
+          updateTodoLists();
+        }
+      }
+
+      updateTodoLists();
+    </script>
+  </body>
+</html>
