@@ -1,7 +1,6 @@
 {
   "name": "task_graph",
   "version": "0.0.1",
-  "license": "UNLICENSED",
   "scripts": {
     "start": "npx webpack serve --mode=development",
     "build": "webpack",
@@ -18,21 +17,20 @@
     "autoprefixer": "*",
     "babel-loader": "*",
     "css-loader": "*",
-    "eslint": "*",
     "eslint-config-prettier": "*",
-    "favicons": "^7.1.4",
-    "favicons-webpack-plugin": "^6.0.1",
+    "eslint": "*",
+    "favicons-webpack-plugin": "*",
+    "favicons": "*",
     "html-loader": "*",
     "html-webpack-plugin": "*",
     "http-server": "*",
     "mini-css-extract-plugin": "*",
-    "postcss": "*",
     "postcss-import": "*",
     "postcss-load-config": "*",
     "postcss-loader": "*",
-    "sass": "*",
+    "postcss": "*",
     "sass-loader": "*",
-    "screenfull": "*",
+    "sass": "*",
     "style-loader": "*",
     "styled-components": "*",
     "tailwindcss": "*",
@@ -40,9 +38,8 @@
     "typescript": "*",
     "vis-data": "*",
     "vis-network": "*",
-    "webpack": "*",
     "webpack-cli": "*",
     "webpack-dev-server": "*",
-    "workbox-webpack-plugin": "*"
+    "webpack": "*"
   }
 }
