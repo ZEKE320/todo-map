@@ -60,23 +60,13 @@ module.exports = {
       title: "TODO Map",
       template: "src/main/view/templates/todo-map.html",
       filename: "index.html",
-      inject: true,
     }),
     new MiniCssExtractPlugin({
       filename: "static/css/[name]-[contenthash].css",
     }),
     new FaviconsWebpackPlugin({
-      logo: "src/main/view/static/images/favicon-io/check-mark-button/favicon-16x16.png",
-      mode: "webapp",
-      devMode: "webapp",
-      inject: true,
-      favicons: {
-        icons: {
-          android: ["android-chrome-192x192.png", "android-chrome-512x512.png"],
-          appleIcon: ["apple-touch-icon.png"],
-          favicons: ["favicon-16x16.png", "favicon-32x32.png", "favicon.ico"],
-        },
-      },
+      logo: "src/main/view/static/images/favicon-io/check-mark-button/android-chrome-512x512.png",
+      prefix: "static/images/favicons/",
     }),
   ],
 };

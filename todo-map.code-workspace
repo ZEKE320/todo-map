@@ -1,8 +1,9 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
+  "folders": [
+    {
+      "name": "webpack",
+      "path": "."
+    }
   ],
   "settings": {}
 }
