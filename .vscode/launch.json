@@ -2,11 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "localhost:8080を開く",
+      "name": "Webpack: Chrome",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome/webpack"
     }
   ]
 }
