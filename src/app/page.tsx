@@ -1,9 +1,8 @@
+import Footer from "@/lib/components/common/Footer";
 import Header from "@/lib/components/common/Header";
 import TodoMapCmp from "@/lib/components/todo-map/TodoMap";
 import Container from "@mui/material/Container";
-import Link from "next/link";
 import "./page.module.scss";
-import Footer from "@/lib/components/common/Footer";
 
 const Home = () => {
   return (
