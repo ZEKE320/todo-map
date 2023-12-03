@@ -30,13 +30,12 @@ const Footer = () => {
           </Box>
         </Box>
         <Box>
-          参考 |{" "}
+          Reference |{" "}
           <Link
             color={blueGrey.A700}
             href="https://www.youtube.com/watch?v=aPPQPCMrEzo"
           >
-            科学的に最強な雑談のはじめ方【会話スターター】とは？ | メンタリスト
-            DaiGo. (YouTube.com)
+            メンタリスト DaiGo. (YouTube.com)
           </Link>
         </Box>
       </Box>
