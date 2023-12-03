@@ -123,7 +123,9 @@ function adjustNetworkSize() {
 
   todoMapContainer.style.height = `${containerHeight}px`;
 
-  network?.fit();
+  setTimeout(() => {
+    network?.fit();
+  });
 }
 
 /**
@@ -211,7 +213,7 @@ function plotGoalPathAndAlert(nodeId: IdType) {
 
       setTimeout(() => {
         alertGoal();
-      }, 200);
+      }, 20);
     }
   }
 }
