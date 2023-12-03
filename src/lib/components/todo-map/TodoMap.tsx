@@ -4,7 +4,7 @@ import TodoMapHandler from "@/lib/ts/TodoMapHandler";
 import { useEffect } from "react";
 import "./todo-map.scss";
 
-const TodoMapCmp = () => {
+const TodoMap = () => {
   useEffect(() => {
     TodoMapHandler();
   }, []);
@@ -12,4 +12,4 @@ const TodoMapCmp = () => {
   return <section id="todoMap"></section>;
 };
 
-export default TodoMapCmp;
+export default TodoMap;
