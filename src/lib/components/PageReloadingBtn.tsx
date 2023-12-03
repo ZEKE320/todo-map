@@ -23,8 +23,10 @@ const PageReloadingBtn = ({ label }: ButtonData) => {
       <Button
         id="refreshButton"
         variant="contained"
+        size="small"
         onClick={() => handleLoading()}
         sx={{ display: "none" }}
+        disableElevation
       >
         {label}
       </Button>
