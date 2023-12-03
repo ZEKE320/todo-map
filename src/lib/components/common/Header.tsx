@@ -15,10 +15,7 @@ const Header = ({ title }: HeaderData) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar elevation={0} position="static">
-        <Toolbar
-          variant="dense"
-          sx={{ display: "flex", justifyContent: "space-between" }}
-        >
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box
             sx={{
               display: "flex",
