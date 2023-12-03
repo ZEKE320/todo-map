@@ -48,6 +48,12 @@ export function initTodoMap() {
 
   // ゴール達成フラグを初期化
   achievedGoal = false;
+
+  // 目標再設定ボタンを非表示にする
+  const refreshButtonElem = document.querySelector("#refreshButton");
+  if (refreshButtonElem) {
+    (refreshButtonElem as HTMLElement).style.display = "none";
+  }
 }
 
 function TodoMapHandler() {
@@ -59,6 +65,7 @@ function TodoMapHandler() {
     throw new Error("ノードリンクが見つかりません！");
   }
 
+  // NOTE データを指定しなければ初期化できないため、ダミーデータを指定。その後すぐにデータを更新する
   network = new Network(todoMapElem, {}, options);
   initTodoMap();
 
@@ -92,6 +99,8 @@ function TodoMapHandler() {
 
   window.addEventListener("resize", () => adjustNetworkSize());
   document.addEventListener("DOMContentLoaded", () => adjustNetworkSize());
+
+  adjustNetworkSize();
 }
 
 /**
@@ -117,6 +126,11 @@ function adjustNetworkSize() {
   network?.fit();
 }
 
+/**
+ * ノードが達成済みかどうかをチェックする
+ * @param node ノード
+ * @returns 達成済みならばtrue
+ */
 function checkNodeIsDone(node: Node) {
   return node.color === PROGRESS_COLORS.done;
 }
@@ -189,7 +203,10 @@ function plotGoalPathAndAlert(nodeId: IdType) {
   ) {
     plotGoalPath();
     if (!achievedGoal) {
-      document.querySelector("#refreshButton")?.classList.remove("hidden");
+      const refreshButtonElem = document.querySelector("#refreshButton");
+      if (refreshButtonElem) {
+        (refreshButtonElem as HTMLElement).style.display = "block";
+      }
       achievedGoal = true;
 
       setTimeout(() => {

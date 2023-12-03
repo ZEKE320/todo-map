@@ -154,8 +154,8 @@ export let data: Data;
  * データをリセットする
  */
 export function initData() {
-  const nodes = initDataSetNodes();
-  const edges = initDataSetEdges();
+  const nodes: DataSetNodes = initDataSetNodes();
+  const edges: DataSetEdges = initDataSetEdges();
   data = { nodes, edges };
 }
 
