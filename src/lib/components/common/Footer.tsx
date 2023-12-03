@@ -5,8 +5,14 @@ import { blueGrey } from "@mui/material/colors";
 const Footer = () => {
   return (
     <footer>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ display: "flex", mr: "auto" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box sx={{ display: "flex", flexWrap: "nowrap" }}>
           <Box sx={{ mr: "1rem" }}>
             Author |{" "}
             <Link color={blueGrey.A700} href="https://github.com/ZEKE320">
