@@ -1,13 +1,14 @@
 import {
-  START_NODE_ID,
-  PROGRESS_COLORS,
-  TEXT_COLORS,
   GOAL_NODE_ID,
-} from "ts/Constants";
+  PROGRESS_COLORS,
+  START_NODE_ID,
+  TEXT_COLORS,
+} from "@/lib/ts/vis.js/Constants";
 import { DataSet } from "vis-data";
-import { DataSetEdges, DataSetNodes, Edge } from "vis-network";
+import { Data, DataSetEdges, DataSetNodes, Edge, Node } from "vis-network";
 
-export const dataSetNodes: DataSetNodes = new DataSet([
+/** ノードリスト */
+const baseNodes: Node[] = [
   {
     id: START_NODE_ID,
     label: "現在:\n人と話すことが得意ではない",
@@ -108,7 +109,6 @@ export const dataSetNodes: DataSetNodes = new DataSet([
       color: TEXT_COLORS.fade,
     },
   },
-
   {
     id: GOAL_NODE_ID,
     label: "理想:\n初対面でもしばらく会話を続けられる",
@@ -121,10 +121,10 @@ export const dataSetNodes: DataSetNodes = new DataSet([
     },
     borderWidth: 5,
   },
-]);
+];
 
-/** エッジ */
-export const edges: Edge[] = [
+/** エッジリスト */
+const baseEdges: Edge[] = [
   { from: START_NODE_ID, to: 2 },
   { from: START_NODE_ID, to: 3 },
   { from: START_NODE_ID, to: 4 },
@@ -147,5 +147,34 @@ export const edges: Edge[] = [
   { from: 12, to: GOAL_NODE_ID },
 ];
 
-/** データセットエッジ */
-export const dataSetEdges: DataSetEdges = new DataSet(edges);
+/** データ */
+export let data: Data;
+
+/**
+ * データをリセットする
+ */
+export function initData() {
+  const nodes: DataSetNodes = initDataSetNodes();
+  const edges: DataSetEdges = initDataSetEdges();
+  data = { nodes, edges };
+}
+
+/**
+ * データセットノードを初期化する
+ * @returns データセットノード
+ */
+function initDataSetNodes(): DataSetNodes {
+  return new DataSet(
+    baseNodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
+  );
+}
+
+/**
+ * データセットエッジを初期化する
+ * @returns データセットエッジ
+ */
+function initDataSetEdges(): DataSetEdges {
+  return new DataSet(
+    baseEdges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
+  );
+}
