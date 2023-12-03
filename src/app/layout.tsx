@@ -7,6 +7,7 @@ import "./globals.scss";
 const notoSansJp: NextFont = Noto_Sans_JP({
   subsets: ["latin"],
   display: "swap",
+  weight: "variable",
 });
 
 export const metadata: Metadata = {
