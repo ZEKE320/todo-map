@@ -1,15 +1,15 @@
 "use client";
 
-import TodoMapHandler from "@/lib/ts/todo-map/TodoMapHandler";
+import handleTodoMap from "@/lib/ts/todo-map/TodoMapHandler";
 import { useEffect } from "react";
 import "./todo-map.scss";
 
 const TodoMap = () => {
   useEffect(() => {
-    TodoMapHandler();
+    handleTodoMap();
   }, []);
 
-  return <section id="todoMap"></section>;
+  return <section id="todoMap" />;
 };
 
 export default TodoMap;
