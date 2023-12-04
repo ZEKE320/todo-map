@@ -35,7 +35,7 @@ const Footer = () => {
             color={blueGrey.A700}
             href="https://www.youtube.com/watch?v=aPPQPCMrEzo"
           >
-            メンタリスト DaiGo. (YouTube.com)
+            「科学的に正しい雑談のはじめ方（メンタリストDaiGo）」(YouTube.com)
           </Link>
         </Box>
       </Box>
