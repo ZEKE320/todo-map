@@ -1,20 +1,26 @@
-import Menu from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import { useState } from "react";
+// import IconButton from "@mui/material/IconButton";
+// import List from "@mui/material/List";
+// import ListItem from "@mui/material/ListItem";
+// import Menu from "@mui/icons-material/Menu";
+// import Drawer from "@mui/material/Drawer";
+// import TungstenIcon from "@mui/icons-material/Tungsten";
+// import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
+// import UnpublishedIcon from "@mui/icons-material/Unpublished";
+// import { useState } from "react";
 
 const SideMenu = () => {
-  const [openDrawer, setOpenDrawer] = useState(false);
+  // const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <Box>
-      <IconButton
+      {/* <IconButton
         color="inherit"
         aria-label="menu"
         onClick={() => setOpenDrawer(true)}
       >
         <Menu />
-      </IconButton>
+      </IconButton> */}
       {/* <Drawer
         anchor="left"
         open={openDrawer}
