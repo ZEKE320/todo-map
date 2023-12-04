@@ -8,7 +8,7 @@
 
 ## デモ
 
-実際の動作確認は[こちら](https://zeke320-todo-map.vercel.app/)から
+最新のデモは[こちら](https://zeke320-todo-map.vercel.app/)から
 
 ## 目次
 
