@@ -21,7 +21,7 @@ const SideMenu = () => {
       >
         <Menu />
       </IconButton>
-      <Drawer
+      {/* <Drawer
         anchor="left"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
@@ -42,7 +42,7 @@ const SideMenu = () => {
             まだ達成できないTODO
           </ListItem>
         </List>
-      </Drawer>
+      </Drawer> */}
     </Box>
   );
 };
