@@ -4,8 +4,6 @@ import TodoMap from "@/lib/components/todo-map/TodoMap";
 import Container from "@mui/material/Container";
 import "./page.module.scss";
 
-export const revalidate = 3600;
-
 const Home = () => {
   return (
     <div>
