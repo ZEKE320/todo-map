@@ -4,7 +4,7 @@ import { NextFont } from "next/dist/compiled/@next/font";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.scss";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60 * 60;
 
 const notoSansJp: NextFont = Noto_Sans_JP({
   subsets: ["latin"],
