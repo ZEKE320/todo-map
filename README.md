@@ -1,5 +1,7 @@
 # ToDoマップ
 
+![イメージ](images/ToDoマップ.png)
+
 ## コンセプト
 
 ### 目標達成のGoogle Map
@@ -41,8 +43,6 @@ make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept
 などを想定しています。
 
 ## 操作方法
-
-![イメージ](images/ToDoマップ.png)
 
 - それぞれのノードは、現状（緑）、理想（赤）、ToDo（グレー）を表しています。
 - 文字色が緑色のToDoノードは現在の自分が達成することのできる（または既に達成している）ノードです。
