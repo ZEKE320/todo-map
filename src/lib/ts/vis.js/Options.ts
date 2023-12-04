@@ -4,14 +4,14 @@ import { Options } from "vis-network/peer/esm/vis-network";
 export const options: Options = {
   nodes: {
     shape: "dot",
-    size: 16,
+    size: 12,
     font: {
       size: 12,
     },
     fixed: false,
   },
   edges: {
-    width: 6,
+    width: 4,
     arrows: "to",
     color: {
       opacity: 0.7,
@@ -28,9 +28,9 @@ export const options: Options = {
     solver: "hierarchicalRepulsion",
     hierarchicalRepulsion: {
       avoidOverlap: 1,
-      springConstant: 1,
-      springLength: 400,
-      nodeDistance: 400,
+      springConstant: 0.1,
+      springLength: 370,
+      nodeDistance: 50,
       damping: 1,
     },
   },
@@ -40,14 +40,14 @@ export const options: Options = {
       direction: "LR",
       sortMethod: "directed",
       shakeTowards: "roots",
-      levelSeparation: 400,
+      levelSeparation: 300,
       blockShifting: true,
-      edgeMinimization: false,
+      edgeMinimization: true,
       parentCentralization: true,
     },
   },
   interaction: {
-    dragNodes: false,
+    dragNodes: true,
     dragView: true,
     zoomView: true,
     navigationButtons: false,

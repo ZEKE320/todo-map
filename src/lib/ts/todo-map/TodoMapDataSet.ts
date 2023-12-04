@@ -72,7 +72,7 @@ export default class TodoMapDataSets {
     if (nodeId === START_NODE_ID || nodeId === GOAL_NODE_ID) {
       return TEXT_COLORS.highlighted;
     } else {
-      return TEXT_COLORS.fade;
+      return TEXT_COLORS.secondary;
     }
   }
 }

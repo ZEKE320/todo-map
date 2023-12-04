@@ -6,8 +6,8 @@ export const GOAL_NODE_ID = Number.MAX_SAFE_INTEGER;
 /** テキストカラー */
 export const TEXT_COLORS = {
   highlighted: "#D0F288",
-  normal: "#96F8F4",
-  fade: "#939495",
+  primary: "#96F8F4",
+  secondary: "#F3F4F5",
 };
 
 /** 進捗カラー */

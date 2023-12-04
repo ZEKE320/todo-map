@@ -173,7 +173,7 @@ function updateAchievableNodes(nodeId: IdType) {
         // フォントカラーを更新し、ノードを有効化する
         (data.nodes as DataSetNodes).update({
           id: nextNode.id,
-          font: { color: TEXT_COLORS.normal },
+          font: { color: TEXT_COLORS.primary },
           borderWidth: 4,
         });
       }
