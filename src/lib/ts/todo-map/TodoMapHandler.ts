@@ -56,7 +56,7 @@ export function initTodoMap() {
   }
 }
 
-async function handleTodoMap() {
+function handleTodoMap() {
   /** ネットワークコンテナ */
   const todoMapElem: HTMLElement | null = document.querySelector("#todoMap");
 
