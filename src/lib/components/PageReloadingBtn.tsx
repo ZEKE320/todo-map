@@ -1,6 +1,6 @@
 "use client";
 
-import { initTodoMap } from "@/lib/ts/TodoMapHandler";
+import { initTodoMap } from "@/lib/ts/todo-map/TodoMapHandler";
 import { ButtonData } from "@/lib/type";
 import { CircularProgress } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop/Backdrop";

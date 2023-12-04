@@ -1,6 +1,6 @@
 "use client";
 
-import TodoMapHandler from "@/lib/ts/TodoMapHandler";
+import TodoMapHandler from "@/lib/ts/todo-map/TodoMapHandler";
 import { useEffect } from "react";
 import "./todo-map.scss";
 
