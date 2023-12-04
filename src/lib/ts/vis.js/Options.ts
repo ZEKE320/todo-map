@@ -4,27 +4,53 @@ import { Options } from "vis-network/peer/esm/vis-network";
 export const options: Options = {
   nodes: {
     shape: "dot",
-    size: 24,
+    size: 12,
     font: {
       size: 12,
     },
+    fixed: false,
   },
   edges: {
-    width: 6,
+    width: 4,
     arrows: "to",
+    color: {
+      opacity: 0.7,
+    },
+    smooth: {
+      enabled: true,
+      type: "cubicBezier",
+      forceDirection: "horizontal",
+      roundness: 0.5,
+    },
   },
   physics: {
-    solver: "repulsion",
-    repulsion: {
-      centralGravity: 1,
-      springLength: 50,
-      springConstant: 0.01,
-      nodeDistance: 300,
-      damping: 0.75,
+    enabled: true,
+    solver: "hierarchicalRepulsion",
+    hierarchicalRepulsion: {
+      avoidOverlap: 1,
+      springConstant: 1,
+      springLength: 200,
+      nodeDistance: 200,
+      damping: 1,
+    },
+  },
+  layout: {
+    hierarchical: {
+      enabled: true,
+      direction: "LR",
+      sortMethod: "directed",
+      shakeTowards: "roots",
+      levelSeparation: 300,
+      blockShifting: true,
+      edgeMinimization: false,
+      parentCentralization: true,
     },
   },
   interaction: {
-    dragNodes: true,
+    dragNodes: false,
     dragView: true,
+    zoomView: true,
+    navigationButtons: false,
+    hover: true,
   },
 };
