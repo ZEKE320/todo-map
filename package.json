@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource-variable/noto-sans-jp": "^5.0.16",
     "@mui/icons-material": "^5.14.19",
