@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource-variable/noto-sans-jp": "^5.0.16",
     "@mui/icons-material": "^5.14.19",
+    "@mui/lab": "^5.0.0-alpha.154",
     "@mui/material": "^5.14.19",
     "@types/node": "^20",
     "@types/react": "^18",
