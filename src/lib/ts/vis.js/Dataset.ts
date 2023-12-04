@@ -4,7 +4,7 @@ import {
   START_NODE_ID,
   TEXT_COLORS,
 } from "@/lib/ts/todo-map/TodoMapConstants";
-import TodoMapDataSets from "@/lib/ts/todo-map/TodoMapDataSet";
+// import TodoMapDataSets from "@/lib/ts/todo-map/TodoMapDataSet";
 import { DataSet } from "vis-data";
 import { Data, DataSetEdges, DataSetNodes, Edge, Node } from "vis-network";
 
@@ -155,7 +155,7 @@ const baseEdges: Edge[] = [
 export let data: Data;
 
 /** TodoMapのデータセット */
-const todoMapDataSets = new TodoMapDataSets();
+// const todoMapDataSets = new TodoMapDataSets();
 
 /**
  * データをリセットする
@@ -180,16 +180,16 @@ function initDataSetNodes(): DataSetNodes {
   );
 }
 
-/**
- * ノードリストを用いてデータセットノードを初期化する
- * @param nodes ノードリスト
- * @returns データセットノード
- */
-function initDataSetNodesFromNodes(nodes: Node[]): DataSetNodes {
-  return new DataSet(
-    nodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
-  );
-}
+// /**
+//  * ノードリストを用いてデータセットノードを初期化する
+//  * @param nodes ノードリスト
+//  * @returns データセットノード
+//  */
+// function initDataSetNodesFromNodes(nodes: Node[]): DataSetNodes {
+//   return new DataSet(
+//     nodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
+//   );
+// }
 
 /**
  * データセットエッジを初期化する
@@ -201,13 +201,13 @@ function initDataSetEdges(): DataSetEdges {
   );
 }
 
-/**
- * エッジリストを用いてデータセットエッジを初期化する
- * @param edges エッジリスト
- * @returns データセットエッジ
- */
-function initDataSetEdgesFromEdges(edges: Edge[]): DataSetEdges {
-  return new DataSet(
-    edges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
-  );
-}
+// /**
+//  * エッジリストを用いてデータセットエッジを初期化する
+//  * @param edges エッジリスト
+//  * @returns データセットエッジ
+//  */
+// function initDataSetEdgesFromEdges(edges: Edge[]): DataSetEdges {
+//   return new DataSet(
+//     edges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
+//   );
+// }
