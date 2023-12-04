@@ -47,7 +47,7 @@ export const options: Options = {
     },
   },
   interaction: {
-    dragNodes: true,
+    dragNodes: false,
     dragView: true,
     zoomView: true,
     navigationButtons: false,
