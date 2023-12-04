@@ -1,3 +1,9 @@
+import {
+  GOAL_NODE_ID,
+  PROGRESS_COLORS,
+  START_NODE_ID,
+  TEXT_COLORS,
+} from "@/lib/ts/todo-map/TodoMapConstants";
 import { data, initData } from "@/lib/ts/vis.js/Dataset";
 import { options } from "@/lib/ts/vis.js/Options";
 import {
@@ -6,12 +12,6 @@ import {
   Network,
   Node,
 } from "vis-network/peer/esm/vis-network";
-import {
-  GOAL_NODE_ID,
-  PROGRESS_COLORS,
-  START_NODE_ID,
-  TEXT_COLORS,
-} from "./vis.js/Constants";
 
 /** 目標達成済みならばtrue */
 export let achievedGoal = false;

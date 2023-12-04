@@ -1,7 +1,7 @@
 /** スタート ノードID */
-export const START_NODE_ID = 1;
+export const START_NODE_ID = 0;
 /** ゴール ノードID */
-export const GOAL_NODE_ID = 100;
+export const GOAL_NODE_ID = Number.MAX_SAFE_INTEGER;
 
 /** テキストカラー */
 export const TEXT_COLORS = {
