@@ -1,12 +1,6 @@
+import Menu from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Menu from "@mui/icons-material/Menu";
-import Drawer from "@mui/material/Drawer";
-import TungstenIcon from "@mui/icons-material/Tungsten";
-import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
-import UnpublishedIcon from "@mui/icons-material/Unpublished";
 import { useState } from "react";
 
 const SideMenu = () => {
