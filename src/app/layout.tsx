@@ -1,4 +1,5 @@
 import "@fontsource-variable/noto-sans-jp/";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { Noto_Sans_JP } from "next/font/google";
@@ -24,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={notoSansJp.className}>{children}</body>
+      <body className={notoSansJp.className}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
