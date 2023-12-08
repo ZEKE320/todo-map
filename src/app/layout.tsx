@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.scss";
+import { Analytics } from "@vercel/analytics/react";
 
 export const revalidate = 60 * 60;
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={notoSansJp.className}>
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
