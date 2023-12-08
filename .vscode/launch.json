@@ -5,12 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: Chrome",
-      "type": "chrome",
+      "name": "Next.js: Launch Dev Environment",
+      "type": "node-terminal",
       "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
-      "userDataDir": "${workspaceFolder}/.vscode/chrome/nextjs"
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
     }
   ]
 }
