@@ -1,7 +1,7 @@
 import { Options } from "vis-network/peer/esm/vis-network";
 
 /** 階層レイアウトのオプション */
-export const optionsHierarchical: Options = {
+const optionsHierarchic: Options = {
   nodes: {
     shape: "dot",
     size: 12,
@@ -56,7 +56,7 @@ export const optionsHierarchical: Options = {
 };
 
 /** マップレイアウトのオプション */
-export const optionsMap: Options = {
+const optionsMap: Options = {
   nodes: {
     shape: "dot",
     size: 24,
@@ -95,4 +95,35 @@ export const optionsMap: Options = {
   },
 };
 
-export const optionsDefault: Options = optionsMap;
+/** オプション一覧 */
+const availableOptions: { [key: string]: Options } = {
+  hierarchic: optionsHierarchic,
+  map: optionsMap,
+};
+
+/**
+ * オプションを取得する
+ * @param optionName オプション名
+ * @returns オプション
+ */
+function getOptions(optionName: string) {
+  const layoutNames = Object.keys(availableOptions);
+  if (!layoutNames.includes(optionName)) {
+    throw new Error(`レイアウト名が不正です: ${optionName}`);
+  }
+
+  return availableOptions[optionName];
+}
+
+/** デフォルトオプション */
+let optionsDefault: Options = getOptions("map");
+
+/**
+ * デフォルトオプションを更新する
+ * @param optionName オプション名
+ */
+function updateOptionsDefault(optionName: string) {
+  optionsDefault = getOptions(optionName);
+}
+
+export { optionsDefault, updateOptionsDefault };

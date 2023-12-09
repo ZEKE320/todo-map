@@ -35,6 +35,9 @@ export function initTodoMap() {
     throw new Error("ネットワークが見つかりません！");
   }
 
+  // 表示オプションを更新
+  updateOptionsDefault(optionsName);
+
   // 描画用シードを更新
   const newSeed = Math.floor(Math.random() * 1000);
   network.setOptions({
@@ -73,7 +76,7 @@ function handleTodoMap() {
   }
 
   // NOTE データを指定しなければ初期化できないため、ダミーデータを指定。その後すぐにデータを更新する
-  network = new Network(todoMapElem, {}, optionsDefault);
+  network = new Network(todoMapElem, {}, {});
   initTodoMap();
 
   network.on("click", (props: { nodes: IdType[] }) => {
