@@ -4,8 +4,12 @@ import {
   START_NODE_ID,
   TEXT_COLORS,
 } from "@/lib/ts/todo-map/TodoMapConstants";
-import { data, initData } from "@/lib/ts/vis.js/Dataset";
-import { options } from "@/lib/ts/vis.js/Options";
+import {
+  dataDefault,
+  initData,
+  updateDataDefault,
+} from "@/lib/ts/vis.js/Dataset";
+import { optionsDefault, updateOptionsDefault } from "@/lib/ts/vis.js/Options";
 import {
   DataSetNodes,
   IdType,
@@ -14,39 +18,48 @@ import {
 } from "vis-network/peer/esm/vis-network";
 
 /** 目標達成済みならばtrue */
-export let achievedGoal = false;
+export let achievedGoal: boolean = false;
 
 /** 達成可能なノードID一覧 */
-export const achievableNodeIds = new Set<IdType>([START_NODE_ID]);
+export const achievableNodeIds: Set<IdType> = new Set<IdType>();
 
 /** ネットワーク図 */
-export let network: Network | null = null;
+export let network: Network | undefined;
 
 /**
  * ノードリンクを初期化する
  */
-export function initTodoMap() {
-  if (network === null) {
+export function initTodoMap(
+  dataName: string = "internal",
+  optionsName: string = "map"
+) {
+  if (!network) {
     alert("ネットワークが見つかりません！");
     throw new Error("ネットワークが見つかりません！");
   }
 
+  // 表示オプションを更新
+  updateOptionsDefault(optionsName);
+
   // 描画用シードを更新
   const newSeed = Math.floor(Math.random() * 1000);
   network.setOptions({
-    ...options,
-    layout: { ...options.layout, randomSeed: newSeed },
+    ...optionsDefault,
+    layout: { ...optionsDefault.layout, randomSeed: newSeed },
   });
 
-  // データを初期化
+  // データをすべて初期化
   initData();
-  network.setData(data);
+
+  // 表示データを更新
+  updateDataDefault(dataName);
+  network.setData(dataDefault);
 
   // 達成可能なノード一覧を初期化
   achievableNodeIds.clear();
   updateAchievableNodes(START_NODE_ID);
 
-  // ゴール達成フラグを初期化
+  // 目標達成フラグを初期化
   achievedGoal = false;
 
   // 目標再設定ボタンを非表示にする
@@ -54,9 +67,16 @@ export function initTodoMap() {
   if (refreshButtonElem) {
     (refreshButtonElem as HTMLElement).style.display = "none";
   }
+
+  network.redraw();
 }
 
-function handleTodoMap() {
+/**
+ * TodoMapをハンドリングする
+ * @param dataName データ名
+ * @param optionsName オプション名
+ */
+function handleTodoMap(dataName: string, optionsName: string) {
   /** ネットワークコンテナ */
   const todoMapElem: HTMLElement | null = document.querySelector("#todoMap");
 
@@ -66,8 +86,8 @@ function handleTodoMap() {
   }
 
   // NOTE データを指定しなければ初期化できないため、ダミーデータを指定。その後すぐにデータを更新する
-  network = new Network(todoMapElem, {}, options);
-  initTodoMap();
+  network = new Network(todoMapElem, {}, {});
+  initTodoMap(dataName, optionsName);
 
   network.on("click", (props: { nodes: IdType[] }) => {
     // 選択したノードが単一でなければ何もしない
@@ -76,7 +96,7 @@ function handleTodoMap() {
     }
 
     const nodeId: IdType = props.nodes[0];
-    const node: Node | null = (data.nodes as DataSetNodes).get(nodeId);
+    const node: Node | null = (dataDefault.nodes as DataSetNodes).get(nodeId);
     if (!node) {
       alert("選択したノードが見つかりません！");
       throw new Error("選択したノードが見つかりません！");
@@ -141,7 +161,7 @@ function checkNodeIsDone(node: Node) {
  * ノードを達成済みにする
  */
 function markAsDone(nodeId: IdType, node: Node) {
-  (data.nodes as DataSetNodes).update({
+  (dataDefault.nodes as DataSetNodes).update({
     id: nodeId,
     color: PROGRESS_COLORS.done,
     font: {
@@ -168,10 +188,10 @@ function updateAchievableNodes(nodeId: IdType) {
       achievableNodeIds.add(connectedNodeId);
 
       /** 次のノード */
-      const nextNode = (data.nodes as DataSetNodes).get(connectedNodeId);
+      const nextNode = (dataDefault.nodes as DataSetNodes).get(connectedNodeId);
       if (nextNode && nextNode.color !== PROGRESS_COLORS.goal) {
         // フォントカラーを更新し、ノードを有効化する
-        (data.nodes as DataSetNodes).update({
+        (dataDefault.nodes as DataSetNodes).update({
           id: nextNode.id,
           font: { color: TEXT_COLORS.primary },
           borderWidth: 4,
@@ -196,7 +216,7 @@ function plotGoalPathAndAlert(nodeId: IdType) {
     });
 
   const nextNodes = nextNodeIds?.map((nodeId) => {
-    return (data.nodes as DataSetNodes).get(nodeId);
+    return (dataDefault.nodes as DataSetNodes).get(nodeId);
   });
 
   if (
@@ -222,9 +242,9 @@ function plotGoalPathAndAlert(nodeId: IdType) {
  * 目標達成時の達成パスを描画する
  */
 function plotGoalPath() {
-  (data.nodes as DataSetNodes)?.forEach((node) => {
+  (dataDefault.nodes as DataSetNodes)?.forEach((node) => {
     if (node.color === PROGRESS_COLORS.done) {
-      (data.nodes as DataSetNodes).update({
+      (dataDefault.nodes as DataSetNodes).update({
         id: node.id,
         color: PROGRESS_COLORS.path,
         label: node.label,
