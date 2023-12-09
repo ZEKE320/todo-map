@@ -18,19 +18,22 @@ import {
 } from "vis-network/peer/esm/vis-network";
 
 /** 目標達成済みならばtrue */
-export let achievedGoal = false;
+export let achievedGoal: boolean = false;
 
 /** 達成可能なノードID一覧 */
-export const achievableNodeIds = new Set<IdType>([START_NODE_ID]);
+export const achievableNodeIds: Set<IdType> = new Set<IdType>();
 
 /** ネットワーク図 */
-export let network: Network | null = null;
+export let network: Network | undefined;
 
 /**
  * ノードリンクを初期化する
  */
-export function initTodoMap() {
-  if (network === null) {
+export function initTodoMap(
+  dataName: string = "internal",
+  optionsName: string = "map"
+) {
+  if (!network) {
     alert("ネットワークが見つかりません！");
     throw new Error("ネットワークが見つかりません！");
   }
@@ -56,7 +59,7 @@ export function initTodoMap() {
   achievableNodeIds.clear();
   updateAchievableNodes(START_NODE_ID);
 
-  // ゴール達成フラグを初期化
+  // 目標達成フラグを初期化
   achievedGoal = false;
 
   // 目標再設定ボタンを非表示にする
@@ -64,9 +67,16 @@ export function initTodoMap() {
   if (refreshButtonElem) {
     (refreshButtonElem as HTMLElement).style.display = "none";
   }
+
+  network.redraw();
 }
 
-function handleTodoMap() {
+/**
+ * TodoMapをハンドリングする
+ * @param dataName データ名
+ * @param optionsName オプション名
+ */
+function handleTodoMap(dataName: string, optionsName: string) {
   /** ネットワークコンテナ */
   const todoMapElem: HTMLElement | null = document.querySelector("#todoMap");
 
@@ -77,7 +87,7 @@ function handleTodoMap() {
 
   // NOTE データを指定しなければ初期化できないため、ダミーデータを指定。その後すぐにデータを更新する
   network = new Network(todoMapElem, {}, {});
-  initTodoMap();
+  initTodoMap(dataName, optionsName);
 
   network.on("click", (props: { nodes: IdType[] }) => {
     // 選択したノードが単一でなければ何もしない

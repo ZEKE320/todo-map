@@ -6,7 +6,7 @@ import "./todo-map.scss";
 
 const TodoMap = () => {
   useEffect(() => {
-    handleTodoMap();
+    handleTodoMap("internal", "map");
   }, []);
 
   return <section id="todoMap" />;
