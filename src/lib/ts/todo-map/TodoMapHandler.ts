@@ -5,7 +5,7 @@ import {
   TEXT_COLORS,
 } from "@/lib/ts/todo-map/TodoMapConstants";
 import { data, initData } from "@/lib/ts/vis.js/Dataset";
-import { options } from "@/lib/ts/vis.js/Options";
+import { optionsDefault } from "@/lib/ts/vis.js/Options";
 import {
   DataSetNodes,
   IdType,
@@ -34,8 +34,8 @@ export function initTodoMap() {
   // 描画用シードを更新
   const newSeed = Math.floor(Math.random() * 1000);
   network.setOptions({
-    ...options,
-    layout: { ...options.layout, randomSeed: newSeed },
+    ...optionsDefault,
+    layout: { ...optionsDefault.layout, randomSeed: newSeed },
   });
 
   // データを初期化
@@ -66,7 +66,7 @@ function handleTodoMap() {
   }
 
   // NOTE データを指定しなければ初期化できないため、ダミーデータを指定。その後すぐにデータを更新する
-  network = new Network(todoMapElem, {}, options);
+  network = new Network(todoMapElem, {}, optionsDefault);
   initTodoMap();
 
   network.on("click", (props: { nodes: IdType[] }) => {
