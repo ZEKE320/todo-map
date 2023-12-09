@@ -4,7 +4,7 @@ import {
   START_NODE_ID,
   TEXT_COLORS,
 } from "@/lib/ts/todo-map/TodoMapConstants";
-// import TodoMapDataSets from "@/lib/ts/todo-map/TodoMapDataSet";
+import TodoMapDataSets from "@/lib/ts/todo-map/TodoMapDataSet";
 import { DataSet } from "vis-data";
 import { Data, DataSetEdges, DataSetNodes, Edge, Node } from "vis-network";
 
@@ -151,63 +151,84 @@ const baseEdges: Edge[] = [
   { from: 11, to: GOAL_NODE_ID },
 ];
 
-/** データ */
-export let data: Data;
-
 /** TodoMapのデータセット */
-// const todoMapDataSets = new TodoMapDataSets();
+const todoMapDataSets = new TodoMapDataSets();
+
+/** 利用可能なデータ */
+const availableData: { [key: string]: Data } = {
+  external: initDataExternal(),
+  internal: initDataInternal(),
+};
 
 /**
- * データをリセットする
+ * モジュール内のベースデータを用いてデータを初期化する
+ * @returns データ
  */
-export function initData() {
-  // const nodes: DataSetNodes = initDataSetNodesFromNodes(todoMapDataSets.nodes);
-  // const edges: DataSetEdges = initDataSetEdgesFromEdges(todoMapDataSets.edges);
+function initDataInternal(): Data {
+  const nodes: DataSetNodes = initDataSetNodes(baseNodes);
+  const edges: DataSetEdges = initDataSetEdges(baseEdges);
 
-  const nodes: DataSetNodes = initDataSetNodes();
-  const edges: DataSetEdges = initDataSetEdges();
-
-  data = { nodes, edges };
+  return { nodes, edges };
 }
 
 /**
- * データセットノードを初期化する
+ * 外部モジュールのデータセットを用いてデータを初期化する
+ * @returns データ
+ */
+function initDataExternal(): Data {
+  const nodes: DataSetNodes = initDataSetNodes(todoMapDataSets.nodes);
+  const edges: DataSetEdges = initDataSetEdges(todoMapDataSets.edges);
+
+  return { nodes, edges };
+}
+
+/**
+ * ノードリストを用いてデータセットノードを初期化する
+ * @param nodes ノードリスト
  * @returns データセットノード
  */
-function initDataSetNodes(): DataSetNodes {
+function initDataSetNodes(nodes: Node[]): DataSetNodes {
   return new DataSet(
-    baseNodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
+    nodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
   );
 }
-
-// /**
-//  * ノードリストを用いてデータセットノードを初期化する
-//  * @param nodes ノードリスト
-//  * @returns データセットノード
-//  */
-// function initDataSetNodesFromNodes(nodes: Node[]): DataSetNodes {
-//   return new DataSet(
-//     nodes.map((node: Node): Node => JSON.parse(JSON.stringify(node)))
-//   );
-// }
 
 /**
- * データセットエッジを初期化する
+ * エッジリストを用いてデータセットエッジを初期化する
+ * @param edges エッジリスト
  * @returns データセットエッジ
  */
-function initDataSetEdges(): DataSetEdges {
+function initDataSetEdges(edges: Edge[]): DataSetEdges {
   return new DataSet(
-    baseEdges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
+    edges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
   );
 }
 
-// /**
-//  * エッジリストを用いてデータセットエッジを初期化する
-//  * @param edges エッジリスト
-//  * @returns データセットエッジ
-//  */
-// function initDataSetEdgesFromEdges(edges: Edge[]): DataSetEdges {
-//   return new DataSet(
-//     edges.map((edge: Edge) => JSON.parse(JSON.stringify(edge)))
-//   );
-// }
+/**
+ * データセットを変更する
+ */
+function getData(dataName: string) {
+  const dataNames = Object.keys(availableData);
+  if (!dataNames.includes(dataName)) {
+    throw new Error(`データ名が不正です: ${dataName}`);
+  }
+  return availableData[dataName];
+}
+
+/** デフォルトで用いるデータ */
+let dataDefault: Data = getData("internal");
+
+/**
+ * データを初期化する
+ */
+function initData() {
+  availableData["external"] = initDataExternal();
+  availableData["internal"] = initDataInternal();
+}
+
+function updateDataDefault(dataName: string) {
+  dataDefault = getData(dataName);
+}
+
+export { dataDefault, initData, updateDataDefault };
+
