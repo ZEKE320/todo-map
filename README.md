@@ -87,7 +87,4 @@ make realで生成したコンセプト([pdf](concepts/todo-map/todo-map-concept
 
 ### TODOタスク設定時に参考にしたデータ
 
-1. [Dラボ | daigovideolab.jp](https://daigovideolab.jp/)
 1. [メンタリストDaiGo. 超トーク力. CCCメディアハウス, 2021.](http://books.cccmh.co.jp/list/detail/2112/)
-1. [科学的に最強な雑談のはじめ方【会話スターター】 | youtube.com](https://www.youtube.com/watch?v=aPPQPCMrEzo)
-1. [科学的に最強な雑談のはじめ方【会話スターター】とは？ | daigovideolab.jp](https://daigovideolab.jp/play/1586367723)
